@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>text clock</title>
+	<style>
+		*,
+		*::before,
+		*::after {
+			box-sizing: inherit;
+			color: inherit;
+			font-family: inherit;
+		}
+
+		html {
+			background-color: #000;
+			box-sizing: border-box;
+			color: #fff;
+			font-family: monospace;
+			font-size: 8vh;
+			height: 100%;
+			position: relative;
+		}
+
+		body {
+			align-content: center;
+			-ms-align-items: center;
+			align-items: center;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			height: 100%;
+			justify-content: center;
+			margin: 0;
+			padding: 0;
+		}
+
+		.words {
+			align-content: center;
+			-ms-align-items: center;
+			align-items: center;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			-webkit-flex-direction: column;
+			-moz-flex-direction: column;
+			-ms-flex-direction: column;
+			-o-flex-direction: column;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
+		}
+
+		.words__line,
+		.word {
+			align-content: center;
+			-ms-align-items: center;
+			align-items: center;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			justify-content: center;
+		}
+
+		.word,
+		.dot {
+			opacity: 0.2;
+		}
+
+		.on {
+			opacity: 1;
+		}
+
+		.letter {
+			text-align: center;
+			width: 1rem;
+		}
+
+		.dots {
+			bottom: 0;
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		.dot {
+			background-color: #fff;
+			border-radius: 0.2rem;
+			height: 0.2rem;
+			position: absolute;
+			width: 0.2rem;
+		}
+
+		.dot--nw {
+			left: -0.1rem;
+			top: -0.1rem;
+		}
+
+		.dot--ne {
+			right: -0.1rem;
+			top: -0.1rem;
+		}
+
+		.dot--sw {
+			bottom: -0.1rem;
+			left: -0.1rem;
+		}
+
+		.dot--se {
+			bottom: -0.1rem;
+			right: -0.1rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="words">
+		<div class="dots">
+			<div class="dot dot--nw"></div>
+			<div class="dot dot--ne"></div>
+			<div class="dot dot--sw"></div>
+			<div class="dot dot--se"></div>
+		</div>
+		<div class="words__line">
+			<div class="word on always-on">
+				<span class="letter">I</span>
+				<span class="letter">L</span>
+			</div>
+			<div class="word">
+				<span class="letter">N</span>
+			</div>
+			<div class="word on always-on">
+				<span class="letter">E</span>
+				<span class="letter">S</span>
+				<span class="letter">T</span>
+			</div>
+			<div class="word">
+				<span class="letter">O</span>
+			</div>
+			<div class="word word--h2">
+				<span class="letter">D</span>
+				<span class="letter">E</span>
+				<span class="letter">U</span>
+				<span class="letter">X</span>
+			</div>
+		</div>
+		<div class="words__line">
+			<div class="word word--h4">
+				<span class="letter">Q</span>
+				<span class="letter">U</span>
+				<span class="letter">A</span>
+				<span class="letter">T</span>
+				<span class="letter">R</span>
+				<span class="letter">E</span>
+			</div>
+			<div class="word word--h3">
+				<span class="letter">T</span>
+				<span class="letter">R</span>
+				<span class="letter">O</span>
+				<span class="letter">I</span>
+				<span class="letter">S</span>
+			</div>
+		</div>
+		<div class="words__line">
+			<div class="word word--h9">
+				<span class="letter">N</span>
+				<span class="letter">E</span>
+				<span class="letter">U</span>
+				<span class="letter">F</span>
+			</div>
+			<div class="word word--h1">
+				<span class="letter">U</span>
+				<span class="letter">N</span>
+				<span class="letter">E</span>
+			</div>
+			<div class="word word--h7">
+				<span class="letter">S</span>
+				<span class="letter">E</span>
+				<span class="letter">P</span>
+				<span class="letter">T</span>
+			</div>
+		</div>
+		<div class="words__line">
+			<div class="word word--h8">
+				<span class="letter">H</span>
+				<span class="letter">U</span>
+				<span class="letter">I</span>
+				<span class="letter">T</span>
+			</div>
+			<div class="word word--h6">
+				<span class="letter">S</span>
+				<span class="letter">I</span>
+				<span class="letter">X</span>
+			</div>
+			<div class="word word--h5">
+				<span class="letter">C</span>
+				<span class="letter">I</span>
+				<span class="letter">N</span>
+				<span class="letter">Q</span>
+			</div>
+		</div>
+		<div class="words__line">
+			<div class="word word--hmi">
+				<span class="letter">M</span>
+				<span class="letter">I</span>
+			</div>
+			<div class="word word--hdi">
+				<span class="letter">D</span>
+				<span class="letter">I</span>
+			</div>
+			<div class="word word--hx">
+				<span class="letter">X</span>
+			</div>
+			<div class="word word--hminuit">
+				<span class="letter">M</span>
+				<span class="letter">I</span>
+				<span class="letter">N</span>
+				<span class="letter">U</span>
+				<span class="letter">I</span>
+				<span class="letter">T</span>
+			</div>
+		</div>
+		<div class="words__line">
+			<div class="word word-h11">
+				<span class="letter">O</span>
+				<span class="letter">N</span>
+				<span class="letter">Z</span>
+				<span class="letter">E</span>
+			</div>
+			<div class="word">
+				<span class="letter">R</span>
+			</div>
+			<div class="word on always-on">
+				<span class="letter">H</span>
+				<span class="letter">E</span>
+				<span class="letter">U</span>
+				<span class="letter">R</span>
+				<span class="letter">E</span>
+				<span class="letter">S</span>
+			</div>
+		</div>
+		<div class="words__line">
+			<div class="word word--moins">
+				<span class="letter">M</span>
+				<span class="letter">O</span>
+				<span class="letter">I</span>
+				<span class="letter">N</span>
+				<span class="letter">S</span>
+			</div>
+			<div class="word">
+				<span class="letter">O</span>
+			</div>
+			<div class="word word--le">
+				<span class="letter">L</span>
+				<span class="letter">E</span>
+			</div>
+			<div class="word word--dix">
+				<span class="letter">D</span>
+				<span class="letter">I</span>
+				<span class="letter">X</span>
+			</div>
+		</div>
+		<div class="words__line">
+			<div class="word word--et1">
+				<span class="letter">E</span>
+				<span class="letter">T</span>
+			</div>
+			<div class="word">
+				<span class="letter">R</span>
+			</div>
+			<div class="word word--quart">
+				<span class="letter">Q</span>
+				<span class="letter">U</span>
+				<span class="letter">A</span>
+				<span class="letter">R</span>
+				<span class="letter">T</span>
+			</div>
+			<div class="word">
+				<span class="letter">P</span>
+				<span class="letter">M</span>
+				<span class="letter">D</span>
+			</div>
+		</div>
+		<div class="words__line">
+			<div class="word word--vingt">
+				<span class="letter">V</span>
+				<span class="letter">I</span>
+				<span class="letter">N</span>
+				<span class="letter">G</span>
+				<span class="letter">T</span>
+			</div>
+			<div class="word word--tiret">
+				<span class="letter">-</span>
+			</div>
+			<div class="word word--cinq">
+				<span class="letter">C</span>
+				<span class="letter">I</span>
+				<span class="letter">N</span>
+				<span class="letter">Q</span>
+			</div>
+			<div class="word">
+				<span class="letter">U</span>
+			</div>
+		</div>
+		<div class="words__line">
+			<div class="word word--et2">
+				<span class="letter">E</span>
+				<span class="letter">T</span>
+			</div>
+			<div class="word">
+				<span class="letter">S</span>
+			</div>
+			<div class="word word--demie">
+				<span class="letter">D</span>
+				<span class="letter">E</span>
+				<span class="letter">M</span>
+				<span class="letter">I</span>
+				<span class="letter">E</span>
+			</div>
+			<div class="word">
+				<span class="letter">P</span>
+				<span class="letter">A</span>
+				<span class="letter">M</span>
+			</div>
+		</div>
+	</div>
+	<script>
+		var hours = [['minuit'], ['1'], ['2'], ['3'], ['4'], ['5'], ['6'], ['7'], ['8'], ['9'], ['di', 'x'], ['11'], ['mi', 'di'], ['1'], ['2'], ['3'], ['4'], ['5'], ['6'], ['7'], ['8'], ['9'], ['di', 'x'], ['11']];
+		var minutes = [[], ['cinq'], ['dix'], ['et1', 'quart'], ['vingt'], ['vingt', 'tiret', 'cinq'], ['et2', 'demie'], ['moins', 'vingt', 'tiret', 'cinq'], ['moins', 'vingt'], ['moins', 'le', 'quart'], ['moins', 'dix'], ['moins', 'cinq']];
+		var dots = [[''], ['nw'], ['nw', 'ne'], ['nw', 'ne', 'se'], ['nw', 'ne', 'se', 'sw']];
+		setInterval(function() {
+			var date = new Date;
+			var h = date.getHours();
+			var m = date.getMinutes();
+			Array.from(document.querySelectorAll('.on:not(.always-on)')).forEach(word => word.classList.remove('on'));
+			hours[(m>30 ? h+1 : h)%24].forEach(suffix => document.querySelector('.word--h' + suffix).classList.add('on'));
+			minutes[~~(m/5)].forEach(suffix => document.querySelector('.word--' + suffix).classList.add('on'));
+			dots[m%5].forEach(suffix => document.querySelector('.dot--' + suffix).classList.add('on'));
+		}, 500);
+	</script>
+</body>
+</html>
