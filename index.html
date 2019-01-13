@@ -341,7 +341,7 @@
 			var h = date.getHours();
 			var m = date.getMinutes();
 			Array.from(document.querySelectorAll('.on:not(.always-on)')).forEach(word => word.classList.remove('on'));
-			hours[(m > 30 ? h + 1 : h) % 24].forEach(suffix => document.querySelector('.word--h' + suffix).classList.add('on'));
+			hours[(m >= 35 ? h + 1 : h) % 24].forEach(suffix => document.querySelector('.word--h' + suffix).classList.add('on'));
 			minutes[~~(m / 5)].forEach(suffix => document.querySelector('.word--' + suffix).classList.add('on'));
 			dots[m % 5].forEach(suffix => document.querySelector('.dot--' + suffix).classList.add('on'));
 		}, 500);
