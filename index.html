@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 	<meta charset="utf-8">
 	<title>text clock</title>
@@ -227,7 +227,7 @@
 			</div>
 		</div>
 		<div class="words__line">
-			<div class="word word-h11">
+			<div class="word word--h11">
 				<span class="letter">O</span>
 				<span class="letter">N</span>
 				<span class="letter">Z</span>
@@ -236,12 +236,14 @@
 			<div class="word">
 				<span class="letter">R</span>
 			</div>
-			<div class="word on always-on">
+			<div class="word word--hheure">
 				<span class="letter">H</span>
 				<span class="letter">E</span>
 				<span class="letter">U</span>
 				<span class="letter">R</span>
 				<span class="letter">E</span>
+			</div>
+			<div class="word word--hs">
 				<span class="letter">S</span>
 			</div>
 		</div>
@@ -331,7 +333,7 @@
 		</div>
 	</div>
 	<script>
-		var hours = [['minuit'], ['1'], ['2'], ['3'], ['4'], ['5'], ['6'], ['7'], ['8'], ['9'], ['di', 'x'], ['11'], ['mi', 'di'], ['1'], ['2'], ['3'], ['4'], ['5'], ['6'], ['7'], ['8'], ['9'], ['di', 'x'], ['11']];
+		var hours = [['minuit'], ['1', 'heure'], ['2', 'heure', 's'], ['3', 'heure', 's'], ['4', 'heure', 's'], ['5', 'heure', 's'], ['6', 'heure', 's'], ['7', 'heure', 's'], ['8', 'heure', 's'], ['9', 'heure', 's'], ['di', 'x', 'heure', 's'], ['11', 'heure', 's'], ['mi', 'di'], ['1', 'heure'], ['2', 'heure', 's'], ['3', 'heure', 's'], ['4', 'heure', 's'], ['5', 'heure', 's'], ['6', 'heure', 's'], ['7', 'heure', 's'], ['8', 'heure', 's'], ['9', 'heure', 's'], ['di', 'x', 'heure', 's'], ['11', 'heure', 's']];
 		var minutes = [[], ['cinq'], ['dix'], ['et1', 'quart'], ['vingt'], ['vingt', 'tiret', 'cinq'], ['et2', 'demie'], ['moins', 'vingt', 'tiret', 'cinq'], ['moins', 'vingt'], ['moins', 'le', 'quart'], ['moins', 'dix'], ['moins', 'cinq']];
 		var dots = [[''], ['nw'], ['nw', 'ne'], ['nw', 'ne', 'se'], ['nw', 'ne', 'se', 'sw']];
 		setInterval(function() {
@@ -339,9 +341,9 @@
 			var h = date.getHours();
 			var m = date.getMinutes();
 			Array.from(document.querySelectorAll('.on:not(.always-on)')).forEach(word => word.classList.remove('on'));
-			hours[(m>30 ? h+1 : h)%24].forEach(suffix => document.querySelector('.word--h' + suffix).classList.add('on'));
-			minutes[~~(m/5)].forEach(suffix => document.querySelector('.word--' + suffix).classList.add('on'));
-			dots[m%5].forEach(suffix => document.querySelector('.dot--' + suffix).classList.add('on'));
+			hours[(m > 30 ? h + 1 : h) % 24].forEach(suffix => document.querySelector('.word--h' + suffix).classList.add('on'));
+			minutes[~~(m / 5)].forEach(suffix => document.querySelector('.word--' + suffix).classList.add('on'));
+			dots[m % 5].forEach(suffix => document.querySelector('.dot--' + suffix).classList.add('on'));
 		}, 500);
 	</script>
 </body>
