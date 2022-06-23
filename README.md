@@ -3,4 +3,4 @@ Experiment that displays a clock inspired by this one (Qlocktwo): https://www.th
 
 I do not own the rights on the design of the clock. Please visit [Qlocktwo website](https://qlocktwo.com).
 
-Here is a [demo](https://sandbox.c-mh.fr/text-clock/).
+Here is a [demo](https://projects.c-mh.fr/text-clock/).
